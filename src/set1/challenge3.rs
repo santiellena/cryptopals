@@ -28,6 +28,7 @@ fn score_english_text(text: &str) -> u32 {
     let mut frequency_scores: [u32; 128] = [0; 128]; // ASCII range
 
     // Assign higher scores to common English characters
+    // ETAOIN SHRDLU 😉😉
     frequency_scores['e' as usize] = 130; // ~12.7%
     frequency_scores['t' as usize] = 90; // ~9.1%
     frequency_scores['a' as usize] = 80; // ~8.2%
