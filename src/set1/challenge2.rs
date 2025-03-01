@@ -1,5 +1,6 @@
 use hex::FromHexError;
 
+#[allow(dead_code)]
 pub fn hex_xor(hex1: &str, hex2: &str) -> Result<String, FromHexError> {
     // Remove "0x" prefix if present and any whitespace
     let cleaned_hex1: &str = hex1.trim().trim_start_matches("0x");

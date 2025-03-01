@@ -2,7 +2,7 @@ use hex::FromHexError;
 
 #[path = "./challenge2.rs"]
 mod challenge2;
-
+#[allow(dead_code)]
 #[derive(Debug)]
 pub struct Decoded {
     character: char,
