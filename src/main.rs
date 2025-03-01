@@ -37,6 +37,17 @@ fn main() {
     println!();
 
     println!("Challenge 3:");
+    let hex3: &str = "0x1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736";
+    let ranks: [challenges::three::Decoded; 255] =
+        match challenges::three::rank_string_from_encoded(hex3) {
+            Ok(result) => result,
+            Err(_) => panic!(),
+        };
+
+    // Just show the top 10
+    for i in 0..10 {
+        println!("{}. {:?}", i + 1, ranks[i]);
+    }
 
     println!();
     println!("end{}", "-".repeat(100));
