@@ -50,5 +50,19 @@ fn main() {
     }
 
     println!();
+
+    println!("Challenge 4:");
+
+    println!("Looking for the encrypted hex in file './challenges4.txt'...");
+
+    let encrypted: challenges::four::challenge3::Decoded =
+        match challenges::four::detect_single_character_xor() {
+            Ok(result) => result,
+            Err(_) => panic!(),
+        };
+
+    println!("Result: {:?}", encrypted);
+
+    println!();
     println!("end{}", "-".repeat(100));
 }

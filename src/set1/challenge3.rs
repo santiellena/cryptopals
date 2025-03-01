@@ -2,14 +2,16 @@ use hex::FromHexError;
 
 #[path = "./challenge2.rs"]
 mod challenge2;
+
 #[allow(dead_code)]
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub struct Decoded {
     character: char,
     decoded: String,
-    score: u32,
+    pub score: u32,
 }
 
+#[allow(dead_code)]
 impl Decoded {
     pub fn new(character: char, decoded: String, score: u32) -> Self {
         Self {
@@ -22,6 +24,7 @@ impl Decoded {
 
 // Function to score a string based on character frequency
 // To do this one I had to look on the internet because the frecuency scores thing was unknown to me
+#[allow(dead_code)]
 fn score_english_text(text: &str) -> u32 {
     // Define approximate English letter frequencies (as a score multiplier)
     // These are rough weights based on typical English frequencies
@@ -68,6 +71,7 @@ fn score_english_text(text: &str) -> u32 {
     score
 }
 
+#[allow(dead_code)]
 pub fn rank_string_from_encoded(encoded: &str) -> Result<[Decoded; 255], FromHexError> {
     // Remove "0x" prefix if present and any whitespace
     let cleaned_hex: &str = encoded.trim().trim_start_matches("0x");
