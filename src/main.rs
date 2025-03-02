@@ -64,5 +64,16 @@ fn main() {
     println!("Result: {:?}", encrypted);
 
     println!();
+
+    println!("Challenge 5:");
+    let key: &str = "ICE";
+    let data: &str = "Burning 'em, if you ain't quick and nimble I go crazy when I hear a cymbal";
+    println!("Data: {:?}", data);
+    println!("Key: {:?}", key);
+
+    let result5: String = challenges::five::encrypt_repeting_key(key, data);
+    println!("Encrypted data: {:?}", result5);
+
+    println!();
     println!("end{}", "-".repeat(100));
 }

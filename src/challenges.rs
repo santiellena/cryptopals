@@ -9,3 +9,6 @@ pub mod three;
 
 #[path = "set1/challenge4.rs"]
 pub mod four;
+
+#[path = "set1/challenge5.rs"]
+pub mod five;
