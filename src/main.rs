@@ -91,11 +91,11 @@ fn main() {
     println!();
 
     let result6: String = match challenges::six::break_repeating_key() {
-        Ok(result) => result,
+        Ok(result) => result[0..150].to_string(),
         Err(err) => panic!("{:?}", err),
     };
 
-    println!("Decrypted data: {}", result6);
+    println!("Decrypted data(only first 150 characters): \n{}", result6);
 
     println!();
     println!("end{}", "-".repeat(100));
