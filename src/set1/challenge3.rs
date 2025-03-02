@@ -6,7 +6,7 @@ mod challenge2;
 #[allow(dead_code)]
 #[derive(Clone, Debug)]
 pub struct Decoded {
-    character: char,
+    pub character: char,
     decoded: String,
     pub score: u32,
 }
@@ -25,7 +25,7 @@ impl Decoded {
 // Function to score a string based on character frequency
 // To do this one I had to look on the internet because the frecuency scores thing was unknown to me
 #[allow(dead_code)]
-fn score_english_text(text: &str) -> u32 {
+pub fn score_english_text(text: &str) -> u32 {
     // Define approximate English letter frequencies (as a score multiplier)
     // These are rough weights based on typical English frequencies
     let mut frequency_scores: [u32; 128] = [0; 128]; // ASCII range

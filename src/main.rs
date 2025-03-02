@@ -12,7 +12,7 @@ fn main() {
     let hex: &str = "0x49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
     let base64: String = match challenges::one::hex_to_base64(hex) {
         Ok(result) => result,
-        Err(_) => panic!(),
+        Err(err) => panic!("{:?}", err),
     };
 
     println!("Hex: {:?}", hex);
@@ -27,7 +27,7 @@ fn main() {
 
     let xor: String = match challenges::two::hex_xor(hex1, hex2) {
         Ok(result) => result,
-        Err(_) => panic!(),
+        Err(err) => panic!("{:?}", err),
     };
 
     println!("Hex 1: {:?}", hex1);
@@ -41,7 +41,7 @@ fn main() {
     let ranks: [challenges::three::Decoded; 255] =
         match challenges::three::rank_string_from_encoded(hex3) {
             Ok(result) => result,
-            Err(_) => panic!(),
+            Err(err) => panic!("{:?}", err),
         };
 
     // Just show the top 10
@@ -58,7 +58,7 @@ fn main() {
     let encrypted: challenges::four::challenge3::Decoded =
         match challenges::four::detect_single_character_xor() {
             Ok(result) => result,
-            Err(_) => panic!(),
+            Err(err) => panic!("{:?}", err),
         };
 
     println!("Result: {:?}", encrypted);
@@ -71,8 +71,31 @@ fn main() {
     println!("Data: {:?}", data);
     println!("Key: {:?}", key);
 
-    let result5: String = challenges::five::encrypt_repeting_key(key, data);
+    let result5: String = challenges::five::encrypt_repeating_key(key, data);
     println!("Encrypted data: {:?}", result5);
+
+    println!();
+
+    println!("Challenge 6:");
+
+    let text1: String = String::from("this is a test");
+    let text2: String = String::from("wokka wokka!!!");
+
+    println!("Text 1: {:?}", text1);
+    println!("Text 2: {:?}", text2);
+
+    let hamming_distance: u32 =
+        challenges::six::hamming_distance(text1.into_bytes(), text2.into_bytes());
+    println!("Hamming Distance: {:?}", hamming_distance);
+
+    println!();
+
+    let result6: String = match challenges::six::break_repeating_key() {
+        Ok(result) => result,
+        Err(err) => panic!("{:?}", err),
+    };
+
+    println!("Decrypted data: {}", result6);
 
     println!();
     println!("end{}", "-".repeat(100));

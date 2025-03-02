@@ -8,6 +8,7 @@ pub mod challenge3;
 /// a custom error that supports every one possible by
 /// implementing the From function for each error
 #[allow(dead_code)]
+#[derive(Debug)]
 pub enum Error {
     HexError(FromHexError),
     IoError(std::io::Error),
