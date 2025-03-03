@@ -10,16 +10,15 @@ pub fn hex_xor(hex1: &str, hex2: &str) -> Result<String, FromHexError> {
     let bytes1: Vec<u8> = hex::decode(cleaned_hex1)?;
     let bytes2: Vec<u8> = hex::decode(cleaned_hex2)?;
 
-    let l1: u32 = bytes1.len() as u32;
-    let l2: u32 = bytes2.len() as u32;
+    let l1: usize = bytes1.len();
+    let l2: usize = bytes2.len();
 
-    let lenght: u32 = if l1 > l2 { l1 } else { l2 };
+    let lenght: usize = if l1 > l2 { l1 } else { l2 };
 
-    let mut bytes_xor: Vec<u8> = vec![0; lenght as usize];
+    let mut bytes_xor: Vec<u8> = vec![0; lenght];
 
     for i in 0..lenght {
-        let i_u: usize = i as usize;
-        bytes_xor[i_u] = bytes1[i_u] ^ bytes2[i_u];
+        bytes_xor[i] = bytes1[i] ^ bytes2[i];
     }
 
     let result: String = hex::encode(bytes_xor);

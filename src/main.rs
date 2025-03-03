@@ -98,5 +98,43 @@ fn main() {
     println!("Decrypted data(only first 150 characters): \n{}", result6);
 
     println!();
+
+    println!("Challenge 7:");
+
+    let key_vec: Vec<u8> = String::from("YELLOW SUBMARINE").into_bytes();
+    let key: [u8; 16] = [
+        key_vec[0],
+        key_vec[1],
+        key_vec[2],
+        key_vec[3],
+        key_vec[4],
+        key_vec[5],
+        key_vec[6],
+        key_vec[7],
+        key_vec[8],
+        key_vec[9],
+        key_vec[10],
+        key_vec[11],
+        key_vec[12],
+        key_vec[13],
+        key_vec[14],
+        key_vec[15],
+    ];
+
+    println!("Original KEY: {:?}", key);
+
+    let keys: [[[u8; 4]; 4]; 11] = challenges::seven::key_expansion(key);
+
+    println!("ALL ROUND KEYS:");
+    let mut counter: u32 = 0;
+    for round in keys {
+        println!("Round {}:", counter);
+        for word in round {
+            println!("     {:?}", word);
+        }
+        counter += 1;
+    }
+
+    println!();
     println!("end{}", "-".repeat(100));
 }
